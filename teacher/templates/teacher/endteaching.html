@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Visual Memory Test</title>
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'teacher/style.css' %}" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+</style>
+
+</head>
+
+<body>
+
+<div id="frame">
+
+    <div id="container">
+
+        <h1>End of Teaching</h1>
+
+	<div style="text-align:justify;margin-left:150px;padding:0">
+
+        <p>We will now assess your ability to read Czech.</p>
+        <p>You will be shown {{num_testing_images}} test words.</p>
+        <p>There will be no feedback until the end of the test.</p>
+        <p>Good luck!</p>
+
+	</div>
+
+        <!-- THE FORM -->
+        <form id='start_test_form' method="post" action={% url 'index' %}>
+
+            {% csrf_token %}
+
+            <!-- The hidden variables -->
+            <input type="hidden" name="mode" value="3"/>
+
+            <!-- The submit button -->
+            <input id="next_button" type="submit" value="Begin"/>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
