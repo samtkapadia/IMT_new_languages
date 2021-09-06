@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Machine Teaching</title>
+
+{% load static %}
+
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'teacher/style.css' %}" />
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+</style>
+
+</head>
+
+<body>
+
+    <div id="frame">
+
+        <div id="container">
+
+        <h1>Interactive Machine Teaching</h1>
+
+        <div style="text-align:justify;margin:0;padding:0">
+            <p> This is an automated system to help a learner read and pronounce words in the Czech language.</p>
+            <p> A few different teaching algorithms are being assessed. Please refrain from taking this test if
+                you are already familiar with the Czech, Slovak or Polish languages.
+            </p>
+            <p> After clicking Start, you will have an opportunity to practice recording your voice.</p>
+
+            <p> Following that, the teaching will commence. Here, you will be shown a sequence of Czech words.
+                For each word, record your pronunciation using the controls on the page.
+                You will then be given feedback on your answer, and a correct pronunciation which you can listen to.
+            </p>
+            <p>
+                Please note that the recordings you provide will be stored for 6 months and then deleted. You can leave the experiment
+                anytime by closing the browser session.
+            </p>
+            <p>
+                After the teaching rounds there will be some testing rounds. The entire course should take approx.
+                10 minutes to complete.
+            </p>
+
+            <p>Please press <b>Start</b> below to begin.</p>
+
+
+        </div>
+        <img id="query_image" src="/static/teacher/graphics/robot.png" alt="Teaching Image"/>
+        <form id="start_form" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="mode" value="0" />
+            <input id="start_button" type="submit" value="Start" style="margin-top:10px"/>
+        </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Interactive Machine Teaching</title>
+
+{% load static %}
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+</style>
+
+</head>
+
+<body>
+
+<div id="frame">
+
+    <div id="container">
+
+    <div style="text-align:justify;margin-left:150px;margin-right:150px;padding:0">
+
+    <h1>Informed Consent Form</h1>
+
+    <p>Project Title: X</p>
+    <p>Project ID No: X</p>
+    <p>X </p>
+
+    <h2>Contact Details of Investigators</h2>
+    <div class="row">
+                    <div class="col-6">
+                        <p><strong>Principal investigator:</strong>
+                        <br>X X
+                        <br>X
+                        <br>X
+                        <br>X
+                        <br>X
+                        <br>email: X</p>
+
+                    </div>
+                    <div class="col-6">
+                        <p><strong>Co-investigator:</strong>
+                        <br>X X
+                        <br>X
+                        <br>X
+                        <br>X
+                        <br>email: X</p>
+                    </div>
+                    <div class="col-6">
+                        <p><strong>Co-investigator:</strong>
+                        <br>X X
+                        <br>X
+                        <br>X
+                        <br>X
+                        <br>email: X</p>
+                    </div>
+    </div>
+
+    <h2>Participant's Statement</h2>
+    <p>I the Participant agree that I have:</p>
+    <ol>
+                    <li>Read the information on this and the previous page;</li>
+                    <li>I have been advised of an individual to contact for answers to pertinent questions about the research and my rights as a participant and whom to contact in the event of any issues related to the study.</li>
+                    <li>I understand that I am free to withdraw from the study without penalty if I so wish. I understand that I consent to the processing of my personal information for the purposes of this study only. I understand that any such information will be treated as strictly confidential and handled in accordance with all protection legislation.</li>
+    </ol>
+
+        <!-- THE FORM -->
+        <form id='I_consent' method="post">
+
+            {% csrf_token %}
+
+            <label for="terms_and_conditions">I consent and agree to the terms (items 1-3) above:</label>
+            <input type="checkbox" id="terms_and_conditions" value="1" onclick="terms_changed(this)" />
+
+            <!-- The hidden variables -->
+            <input type="hidden" name="mode" value="-2"/>
+
+            <!-- The submit button -->
+            <input id="submit_button" type="submit" disabled value="Continue"/>
+
+        </form>
+
+
+
+    </div>
+
+</div>
+
+</body>
+
+<script>
+    //JavaScript function that enables or disables a submit button depending
+//on whether a checkbox has been ticked or not.
+function terms_changed(termsCheckBox){
+    //If the checkbox has been checked
+    if(termsCheckBox.checked){
+        //Set the disabled property to FALSE and enable the button.
+        document.getElementById("submit_button").disabled = false;
+    } else{
+        //Otherwise, disable the submit button.
+        document.getElementById("submit_button").disabled = true;
+    }
+}
+</script>
+
+
+</html>
