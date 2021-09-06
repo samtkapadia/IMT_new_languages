@@ -1,0 +1,1 @@
+This folder stores user data on teaching and test set performance. Recordings of candidate recordings are stored in /recordings. Please ensure consent is given by the user before storing and user data.
